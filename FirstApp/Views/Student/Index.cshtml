@@ -1,0 +1,48 @@
+﻿@model List<Student>
+<div class="container">
+	<div class="row pb-3">
+		<div class="col-6">
+			<h3>Students' List</h3>
+		</div>
+		<div class="col-6">
+			<a class="btn btn-dark" asp-action="Create" asp-controller="Student">
+				Add Student
+			</a>
+		</div>
+	</div>
+	
+
+	<table class="table table-light table-hover">
+		<thead>
+			<tr>
+				<td>Student Id</td>
+				<td>Name</td>
+				<td>Surname</td>
+				<td>Email Address</td>
+				<td>Phone Number</td>
+				<td>Action</td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (Student student in @Model){
+			<tr>
+					<td>@student.Id</td>
+					<td>@student.Name</td>
+					<td>@student.Surname</td>
+					<td>@student.Email</td>
+					<td>@student.Phone</td>
+					<td>
+						<a class="btn btn-primary" asp-action="Edit" asp-controller="Student" asp-route-id=@student.Id>
+							Edit
+						</a>
+						<a class="btn btn-danger" asp-action="Delete" asp-controller="Student" asp-route-id=@student.Id>
+							Delete
+						</a>
+					</td>
+				
+			</tr>
+			}
+			
+		</tbody>
+	</table>
+</div>
